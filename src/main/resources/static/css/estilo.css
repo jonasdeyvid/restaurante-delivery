@@ -1,0 +1,47 @@
+body{
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.form-login{
+    text-align: right;
+    max-width: 400px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-login h2{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-login .form-login-heading,
+.form-login .checkbox{
+    margin-bottom: 20px;
+}
+
+.form-login .btn{
+    background-color: #a10101;
+    margin-bottom: 20px;
+}
+
+.form-login .esqueci-senha{
+    color: #a10101;
+    margin-left: 160px;
+}
+
+.form-login .cadastre-se{
+    color: #a10101;
+}
+
+.form-login .form-control{
+    position: relative;
+    height: auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+

@@ -5,13 +5,14 @@ xmlns:th="http://www.thymeleaf.org">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Início</title>
+    <title>Cadastrar</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/estilo3.css">
+    <link rel="stylesheet" href="/css/estilo2.css">
 </head>
 <body>
-    
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark" id="menu">
+	
+	 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" id="menu">
             <div class="container" >
                 <a class="navbar-brand" id="inicio-menu" href="/">Início</a>
 
@@ -60,7 +61,7 @@ xmlns:th="http://www.thymeleaf.org">
                                 </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#" ><img class="carrinho" src="img/carrinho3.png" alt="Meu carrinho" data-toggle="tooltip" data-placement="bottom" title="Ver carrinho"></a>
+                            <a class="nav-link" href="#" ><img class="carrinho" src="/img/carrinho3.png" alt="Meu carrinho" data-toggle="tooltip" data-placement="bottom" title="Ver carrinho"></a>
                     </li>
 
                     
@@ -69,21 +70,32 @@ xmlns:th="http://www.thymeleaf.org">
                 </div>
             </div>
         </nav>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>br
-<br><br><br><br><br><br><br><br><br><br><br><br>
-
-
         
-            <footer class="footer mt-auto py-3" id="rodape">
-                    <div class="container">
-                        <span class="text-muted">Desenvolvido por: Jonas Deyvid</span>
-                    </div>
-          </footer>
+	<br><br><br>
+	
+	
+		
+    <div class="container">
+        <form action="/cliente/salvar" method="POST" class="form-login2" th:object="${cliente}" enctype="multipart/form-data">
         
-        <script src="/js/jquery.js"></script>
+            <h2>Cadastre-se</h2>
+            <input th:field="*{nome}" type="text" name="nome" id="inputNome" class="form-control" placeholder="Nome" required autofocus>
+            <input th:field="*{sobrenome}" type="text" name="sobrenome" id="inputSobrenome" class="form-control" placeholder="Sobrenome" required>
+            <input th:field="*{cpf}" type="text" name="cpf" id="inputCpf" class="form-control" placeholder="CPF" required>
+            <input th:field="*{dataNascimento}" type="date" name="dataNascimento" id="inputDataNasc" class="form-control" placeholder="Data de Nascimento" required>
+            <input th:field="*{cidade}" type="text" name="cidade" id="inputCidade" class="form-control" placeholder="Cidade" required>
+            <input th:field="*{cep}" type="text" name="cep" id="inputCep" class="form-control" placeholder="Cep" required>
+            <input th:field="*{bairro}" type="text" name="bairro" id="inputBairro" class="form-control" placeholder="Bairro" required>
+            <input th:field="*{rua}" type="text" name="rua" id="inputRua" class="form-control" placeholder="Rua" required>
+            <input th:field="*{email}" type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required> 
+            <input th:field="*{senha}" type="password" name="senha" id="inputSenha" class="form-control" placeholder="Senha" required>
+            <button type="submit" class="btn btn-lg btn-primary btn-block"> Cadastrar</button>
+        </form>
+       
+    </div>
+
+    	<script src="/js/jquery.js"></script>
         <script src="/js/popper.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
-    
-    
 </body>
 </html>

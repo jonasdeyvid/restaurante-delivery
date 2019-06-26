@@ -33,13 +33,8 @@ public class Pessoa implements UserDetails{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long codigo;
-	
 	@NotBlank(message = "Preencha o campo nome")
 	private String nome;
-	
-	@NotBlank(message = "Preencha o campo time")
-	private String time;
-	
 	@NotNull(message = "Data não pode ser nula")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
@@ -47,6 +42,13 @@ public class Pessoa implements UserDetails{
 	
 	private String login;
 	private String senha;
+	private String email;
+	private String sobrenome;
+	private String cpf;
+	private String cidade;
+	private String cep;
+	private String bairro;
+	private String rua;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable( 
@@ -70,12 +72,7 @@ public class Pessoa implements UserDetails{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
-	}
+
 	
 	public Date getDataNascimento() {
 		return dataNascimento;
@@ -140,6 +137,51 @@ public class Pessoa implements UserDetails{
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getSobrenome() {
+		return sobrenome;
+	}
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+	public String getBairro() {
+		return bairro;
+	}
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+	public String getRua() {
+		return rua;
+	}
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	

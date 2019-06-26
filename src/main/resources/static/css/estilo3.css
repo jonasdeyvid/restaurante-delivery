@@ -1,0 +1,73 @@
+#inicio-menu{
+    font-size: 25px;
+}
+
+#menu{
+    background-color:#a10101;
+}
+
+.navbar .container a{
+}
+
+.form-login{
+    text-align: left;
+    max-width: 300px;
+    min-width: 300px;;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-login h4{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-login .form-login-heading,
+.form-login .checkbox{
+    margin-bottom: 20px;
+}
+
+.form-login .btn{
+    margin-bottom: 20px;
+}
+
+.form-login .esqueci-senha{
+    color: #a10101;
+}
+
+.form-login .cadastre-se{
+    color: #a10101;
+   margin-right: 65px;
+}
+
+.form-login .form-control{
+    position: relative;
+    height: auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#navDrop{
+    margin-right: 20px;
+    margin-bottom: 0px;
+}
+
+#form-drop{
+    margin-left: -110px;
+}
+
+#botao-login{
+    background-color: #a10101;
+}
+
+.carrinho{
+    width: 37px;
+}
+
+#rodape{
+    background-color: #a10101;
+}

@@ -11,7 +11,7 @@ public class RestauranteController {
 		// TODO Auto-generated constructor stub
 	}
 
-	@RequestMapping("/home")
+	@RequestMapping("/")
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView("Inicio");
 		return mv;

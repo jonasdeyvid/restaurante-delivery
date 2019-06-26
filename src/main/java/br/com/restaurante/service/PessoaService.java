@@ -22,9 +22,9 @@ public class PessoaService {
 		pessoa.setSenha(new BCryptPasswordEncoder().encode(pessoa.getSenha()));
 		
 		
-		String caminho = "images/" + pessoa.getNome() + ".png";
+		//String caminho = "images/" + pessoa.getNome() + ".png";
 		
-		AulaFileUtils.salvarImagem(caminho,imagem);
+		//AulaFileUtils.salvarImagem(caminho,imagem);
 		
 		pessoaRepository.save(pessoa);
 	}

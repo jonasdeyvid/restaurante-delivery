@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+<html lang="pt-br" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
+    <div class="container">
+        <form action="" class="form-login">
+            <h2>Faça login</h2>
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus> 
+            <input type="password" name="senha" id="inputSenha" class="form-control" placeholder="Senha" required>
+            <button type="submit" class="btn btn-lg btn-primary btn-block"> Login</button>
+            <a class="cadastre-se" href="/pessoa/formulario">Cadastre-se</a> 
+            <a class="esqueci-senha" href="/pessoa/redefinir-senha">Esqueci a senha</a> 
+            
+        </form>
+       
+    </div>
 
-<form method="POST">
-
-Login: <input type="text" name="username"> <br>
-
-Senha: <input type="password" name="password"> <br>
-
-<input type="submit" value="Logar">
- 
-
-</form>
-
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
