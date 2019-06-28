@@ -5,7 +5,7 @@ xmlns:th="http://www.thymeleaf.org">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastrar</title>
+    <title>Carrinho</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/estilo3.css">
     <link rel="stylesheet" href="/css/estilo2.css">
@@ -33,7 +33,7 @@ xmlns:th="http://www.thymeleaf.org">
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/pedido/meusPedidos">Meus Pedidos</a>
+                               <a class="nav-link" href="/pedido/meusPedidos">Meus Pedidos</a>
                         </li>
                         
                     </ul>
@@ -61,7 +61,7 @@ xmlns:th="http://www.thymeleaf.org">
                                 </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#" ><img class="carrinho" src="/img/carrinho3.png" alt="Meu carrinho" data-toggle="tooltip" data-placement="bottom" title="Ver carrinho"></a>
+                            <a class="nav-link" href="/carrinho/listar" ><img class="carrinho" src="/img/carrinho3.png" alt="Meu carrinho" data-toggle="tooltip" data-placement="bottom" title="Ver carrinho"></a>
                     </li>
 
                     
@@ -73,23 +73,38 @@ xmlns:th="http://www.thymeleaf.org">
         
 	<br><br><br>
 	
-	
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Codigo</th>
+				<th scope="col">Nome</th>
+				<th scope="col">preço</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each = "prato : ${listaItens}">
+				<td th:text="${prato.codigo}"></td>
+				<td th:text="${prato.nome}"></td>
+				<td th:text="${prato.preco}"></td>
+				<td> <a th:href="@{/carrinho/remover/{codigo}(codigo = ${prato.codigo})}"> <button type="button" class="btn btn-danger">Excluir</button></a></td>
+				<td> <img width="150" height="150" th:src="@{'/images/'+${prato.nome}+${prato.prato.codigo}+'.png'}"> </td>
+			</tr>
+			
+		</tbody>
 		
-    <div class="container">
-        <form action="/cliente/salvar" method="POST" class="form-login2" th:object="${cliente}" enctype="multipart/form-data">
-        
-            <h2>Cadastre-se</h2>
-            <input th:field="*{nome}" type="text" name="nome" id="inputNome" class="form-control" placeholder="Nome" required autofocus>
-            <input th:field="*{cpf}" type="text" name="cpf" id="inputCpf" class="form-control" placeholder="CPF" required maxlength="11">
-            <input th:field="*{dataNascimento}" type="text" name="dataNascimento" id="inputDataNasc" class="form-control" placeholder="Data de Nascimento" required maxlength="8" data-mask="00/00/0000">
-            <input th:field="*{endereco}" type="text" name="endereco" id="inputendereco" class="form-control" placeholder="Endereco" required>
-            <input th:field="*{email}" type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required> 
-            <input th:field="*{senha}" type="password" name="senha" id="inputSenha" class="form-control" placeholder="Senha" required>
-            <button type="submit" class="btn btn-lg btn-primary btn-block"> Cadastrar</button>
-        </form>
-       
-    </div>
+	</table>
+	<form action="/pedido/confirmarPedido">
+		<a href="/pedido/confirmarPedido"> <button type="button" class="btn btn-primary">Confirmar compra</button> </a>
+		Preço total: <span th:text="${precoTotal}">
+    </form>
     
+    <br> <br>
+    
+    <footer class="footer mt-auto py-3" id="rodape">
+                    <div class="container">
+                        <span class="text-muted">Desenvolvido por: Jonas Deyvid</span>
+                    </div>
+          </footer>
 			
 		
     	<script src="/js/jquery.js"></script>

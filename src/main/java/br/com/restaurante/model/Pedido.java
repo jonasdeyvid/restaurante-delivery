@@ -9,17 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Pedido {
-
+//mesmo que venda
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long codigo;
 	
-	@NotBlank
 	@OneToMany
 	@ElementCollection
 	@JoinTable( 
@@ -28,12 +28,19 @@ public class Pedido {
 	          name = "pedido_codigo", referencedColumnName = "codigo"), 
 	        inverseJoinColumns = @JoinColumn(
 	          name = "item_codigo", referencedColumnName = "codigo")) 
-	private List<ItemDeCompraAbstrato> itensDeCompra;
+	private List<ItemDeCompra> itensDeCompra;
+	
 	private double precoTotal;
-	private Long idComprador;
+	
+	@ManyToOne
+	private Cliente comprador;
 	public Pedido() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Pedido(Cliente cliente) {
+	}
+	
 	public Long getId() {
 		return codigo;
 	}
@@ -41,10 +48,10 @@ public class Pedido {
 		this.codigo = id;
 	}
 	
-	public List<ItemDeCompraAbstrato> getItensDeCompra() {
+	public List<ItemDeCompra> getItensDeCompra() {
 		return itensDeCompra;
 	}
-	public void setItensDeCompra(List<ItemDeCompraAbstrato> itensDeCompra) {
+	public void setItensDeCompra(List<ItemDeCompra> itensDeCompra) {
 		this.itensDeCompra = itensDeCompra;
 	}
 	public double getPrecoTotal() {
@@ -53,11 +60,19 @@ public class Pedido {
 	public void setPrecoTotal(double precoTotal) {
 		this.precoTotal = precoTotal;
 	}
-	public Long getIdComprador() {
-		return idComprador;
+	public Cliente getComprador() {
+		return this.comprador;
 	}
-	public void setIdComprador(Long idComprador) {
-		this.idComprador = idComprador;
+	public void setComprador(Cliente comprador) {
+		this.comprador = comprador;
+	}
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 }

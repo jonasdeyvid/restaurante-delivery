@@ -1,30 +1,23 @@
 package br.com.restaurante.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Prato extends ItemDeCompraAbstrato{
-
-	@NotBlank(message = "Preencha a campo nome do prato")
-	private String nome;
-	private String descricao;
-	private String ingredientes;
-	@NotBlank(message="Preencha o campo preço")
-	private double preco;
-	private String caminhoImagem;
-	
+public class Prato extends ProdutoAbstrato{
 	public Prato() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
-	@Override
-	public double getPreco() {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	public Prato(Long id) {
+		super(id);
 	}
 
 }

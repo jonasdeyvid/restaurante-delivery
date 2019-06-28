@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,8 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -22,6 +25,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
+@Table 
 public class Pessoa implements UserDetails{
 	
 	
@@ -40,15 +44,13 @@ public class Pessoa implements UserDetails{
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 	
-	private String login;
+	@NotNull(message="preencha o campo senha")
 	private String senha;
+	@NotNull(message="preencha o campo email")
+	@Column(unique = true)
 	private String email;
-	private String sobrenome;
 	private String cpf;
-	private String cidade;
-	private String cep;
-	private String bairro;
-	private String rua;
+	private String endereco;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable( 
@@ -83,12 +85,7 @@ public class Pessoa implements UserDetails{
 	
 	
 	
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
+
 	public String getSenha() {
 		return senha;
 	}
@@ -116,7 +113,7 @@ public class Pessoa implements UserDetails{
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return this.login;
+		return this.email;
 	}
 	@Override
 	public boolean isAccountNonExpired() {
@@ -144,41 +141,18 @@ public class Pessoa implements UserDetails{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSobrenome() {
-		return sobrenome;
-	}
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
 	public String getCpf() {
 		return cpf;
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public String getCidade() {
-		return cidade;
+	
+	public String getEndereco() {
+		return endereco;
 	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-	public String getCep() {
-		return cep;
-	}
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-	public String getBairro() {
-		return bairro;
-	}
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-	public String getRua() {
-		return rua;
-	}
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;

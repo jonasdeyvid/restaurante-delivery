@@ -1,5 +1,6 @@
 package br.com.restaurante.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.restaurante.model.Pessoa;
+import br.com.restaurante.model.Role;
 import br.com.restaurante.repository.PessoaRepository;
+import br.com.restaurante.repository.RoleRepository;
 import br.com.restaurante.util.AulaFileUtils;
 
 @Service
@@ -26,6 +29,8 @@ public class PessoaService {
 		
 		//AulaFileUtils.salvarImagem(caminho,imagem);
 		
+		
+		//pessoa.setRoles(roles);
 		pessoaRepository.save(pessoa);
 	}
 	

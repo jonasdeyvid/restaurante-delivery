@@ -1,6 +1,8 @@
 package br.com.restaurante.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -18,10 +20,10 @@ public class Carrinho {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long codigo;
 
-	@ManyToMany( targetEntity = Prato.class )
+	@ManyToMany
 	@ElementCollection
 	@JoinTable(name = "carrinho_itens", joinColumns = @JoinColumn(name = "carrinho_codigo", referencedColumnName = "codigo"), inverseJoinColumns = @JoinColumn(name = "item_codigo", referencedColumnName = "codigo"))
-	private List<ItemDeCompraAbstrato> itensDeCompra;
+	private List<ItemDeCompra> itensDeCompra;
 
 	public Long getId() {
 		return codigo;
@@ -31,11 +33,11 @@ public class Carrinho {
 		this.codigo = id;
 	}
 
-	public List<ItemDeCompraAbstrato> getItensDeCompra() {
+	public List<ItemDeCompra> getItensDeCompra() {
 		return itensDeCompra;
 	}
 
-	public void setItensDeCompra(List<ItemDeCompraAbstrato> itensDeCompra) {
+	public void setItensDeCompra(List<ItemDeCompra> itensDeCompra) {
 		this.itensDeCompra = itensDeCompra;
 	}
 
@@ -53,5 +55,32 @@ public class Carrinho {
 	public Carrinho() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void removerPrato(Prato item) {
+		itensDeCompra.remove(item);
+	}
+	
+	public void esvaziarCarrinho() {
+		itensDeCompra = new ArrayList<ItemDeCompra>();
+	}
+	
+//	public void adicionarPrato(Prato prato) {
+//		itensDeCompra.add(prato);
+//	}
+
+	public void adicionarItem(ItemDeCompra item) {
+		this.itensDeCompra.add(item);
+	}
+	
+	public void RemoverPrato(Prato prato2) {
+		itensDeCompra.remove(prato2);
+		
+	}
+
+	public void removerItem(ItemDeCompra itemDeCompra) {
+		itensDeCompra.remove(itemDeCompra);
+		
+	}
+	
 
 }

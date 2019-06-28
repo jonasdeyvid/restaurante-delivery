@@ -23,4 +23,13 @@ public class ClienteService {
 		clienteRepository.save(cliente);
 	}
 	
+	public Cliente buscarClientePorEmail(String email) {
+		return clienteRepository.findByEmail(email);
+	}
+	
+	public void deletePorEmail(String email) {
+		Cliente c = clienteRepository.findByEmail(email);
+		clienteRepository.delete(c);
+	}
+	
 }

@@ -13,21 +13,18 @@ import br.com.restaurante.repository.PessoaRepository;
 
 
 @Repository
-
 public class UserDetailsServiceImplementacao implements UserDetailsService{
 		
 	@Autowired
 	private PessoaRepository pessoaRepository;
 	
 	@Override
-	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-		Pessoa pessoa = pessoaRepository.findByLogin(login);
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		Pessoa pessoa = pessoaRepository.findByEmail(email);
 		
 		if(pessoa == null) {
 			throw new UsernameNotFoundException("Usuário não encontrado");
 		}
-		
-		
 		
 		return new User(pessoa.getUsername(),pessoa.getPassword(),true,true,true,true,pessoa.getAuthorities());
 		

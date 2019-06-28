@@ -11,10 +11,10 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
     <div class="container">
-        <form action="" class="form-login">
+        <form class="form-login" method="POST">
             <h2>Faça login</h2>
-            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus> 
-            <input type="password" name="senha" id="inputSenha" class="form-control" placeholder="Senha" required>
+            <input type="email" name="username" id="inputEmail" class="form-control" placeholder="Email" required autofocus> 
+            <input type="password" name="password" id="inputSenha" class="form-control" placeholder="Senha" required>
             <button type="submit" class="btn btn-lg btn-primary btn-block"> Login</button>
             <a class="cadastre-se" href="/pessoa/formulario">Cadastre-se</a> 
             <a class="esqueci-senha" href="/pessoa/redefinir-senha">Esqueci a senha</a> 

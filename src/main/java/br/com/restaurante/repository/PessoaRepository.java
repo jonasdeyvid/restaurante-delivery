@@ -8,5 +8,5 @@ import br.com.restaurante.model.Pessoa;
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long>{
 	
-	Pessoa findByLogin(String login);
+	Pessoa findByEmail(String email);
 }

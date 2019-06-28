@@ -15,7 +15,7 @@ xmlns:th="http://www.thymeleaf.org">
 			<tr>
 				<th scope="col">Codigo</th>
 				<th scope="col">Nome</th>
-				<th scope="col">Time</th>
+				
 				<th scope="col">Data de Nascimento</th>
 			</tr>
 		</thead>
@@ -23,7 +23,7 @@ xmlns:th="http://www.thymeleaf.org">
 			<tr th:each = "pessoa : ${listaDePessoas}">
 				<td th:text="${pessoa.codigo}"></td>
 				<td th:text="${pessoa.nome}"></td>
-				<td th:text="${pessoa.time}"></td>
+				
 				<td th:text="${{pessoa.dataNascimento}}"></td>
 				<td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/pessoa/excluir/{codigo}(codigo = ${pessoa.codigo})}"> <button type="button" class="btn btn-danger">Excluir</button></a></td>
 				<td> <a class="btn btn-primary" th:href="@{/pessoa/atualizar/{codigo}(codigo = ${pessoa.codigo})}"> Atualizar </a></td>

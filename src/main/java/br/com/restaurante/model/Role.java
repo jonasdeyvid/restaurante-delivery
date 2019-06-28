@@ -2,6 +2,7 @@ package br.com.restaurante.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -21,6 +22,19 @@ public class Role implements GrantedAuthority{
 	
 	@ManyToMany(mappedBy = "roles")
 	private List<Pessoa> pessoas;
+	
+	public Role() {
+		
+	}
+	
+	public Role(String papel, Pessoa p) {
+		this.papel = papel;
+		this.pessoas.add(p);
+	}
+	
+	public Role(String papel) {
+		this.papel = papel;
+	}
 	
 	
 	@Override

@@ -21,25 +21,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.csrf().disable().authorizeRequests()
-//		
-//		.antMatchers("/").permitAll()
-//		//Somente uma pessoa com o papel ADMIN pode acessar essa URI
-//		.antMatchers("/pessoa/administrador").hasRole("ADMIN")
+		http.csrf().disable().authorizeRequests()
+		
+		.antMatchers("/").permitAll()
+		//Somente uma pessoa com o papel ADMIN pode acessar essa URI
+		.antMatchers("/pessoa/administrador").hasRole("ADMIN")
+		.antMatchers("/carrinho/adicionar/{codigo}").authenticated()
+		.antMatchers("/carrinho/listar").authenticated()
 //		.antMatchers("/pessoa/formulario").permitAll()
 //		.antMatchers("/pessoa/listar").permitAll()
 //		.antMatchers("/pessoa/salvar").permitAll()
 //		
 //		.anyRequest().authenticated()
+		.and()
+		.formLogin()
+		.loginPage("/restaurante/").permitAll().defaultSuccessUrl("/restaurante/")
+		
+		
 //		
-//		.and()
-//		.formLogin()
-//		.loginPage("/pessoa/logar").permitAll().defaultSuccessUrl("/pessoa/inicio")
-//		
-//		.and()
-//		.logout()
-//		.logoutSuccessUrl("/pessoa/logar?logout")
-//		.permitAll();
+		.and()
+		.logout()
+		.logoutSuccessUrl("/restaurante/?logout")
+		.permitAll();
 		
 	}
 	
